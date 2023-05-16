@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <style>
+    /* Write all necessery css here  */
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      align-items: center;
+    }
+
+    #filter {
+      display: block;
+      border-radius: 3px;
+      font-size: medium;
+      border: 0px;
+      margin: auto;
+      margin-top: 25px;
+      padding: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #product-container {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    #product-container>div {
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #product-container>div>img {
+      width: 100%;
+    }
+
+    #product-container>div>button {
+      display: block;
+      margin: auto;
+      color: white;
+      background-color: rgb(30, 177, 235);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Masai E-Commerce</h1>
+    <a href="./index.html">Home</a>
+    <a href="./cart.html">Cart</a>
+  </div>
+  <!-- Use this Select Tag for Filtering the Products  -->
+  <select id="filter" onchange="filter()">
+    <option value="">Filter By Category</option>
+    <option value="Laptop">Laptop</option>
+    <option value="Mobile">Mobile</option>
+    <option value="Speakers">Speakers</option>
+  </select>
+  <div id="product-container">
+    <!-- Here Append All the Products  -->
+  </div>
+</body>
+<script>
+  // Write all necessery JS here 
+
+  let products = [];
+
+  let cartItems = [];
+
+  let url = "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products";
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((item) => {
+      console.log(item.data);
+      let items = item.data;
+      products = items;
+      displayProducts(items);
+    });
+
+  function filter() {
+    let ctg = document.querySelector("#filter").value;
+    let newItems = products.filter(function (elem) {
+      return elem.category == ctg;
+    })
+    displayProducts(newItems);
+  }
+
+  function displayProducts(items) {
+    document.querySelector("#product-container").innerHTML = "";
+    items.forEach(function (elem) {
+      let div = document.createElement("div");
+
+      let img = document.createElement("img");
+      img.setAttribute("src", elem.img);
+      let brand = document.createElement("h2");
+      brand.innerText = elem.brand;
+      let price = document.createElement("h3");
+      price.innerText = elem.price;
+      let details = document.createElement("p");
+      details.innerText = elem.details;
+      let category = document.createElement("p");
+      category.innerText = elem.category;
+      let button = document.createElement("button");
+      button.innerText = "Add to Cart";
+
+      div.append(img, brand, price, details, category, button);
+      document.querySelector("#product-container").append(div);
+    });
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Calculator</title>
+    <style>
+        .grid{
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 12px;
+            padding: 40px;
+        }
+        .grid>div{
+            height: 55px;
+            border-radius: 6px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            display: flex;
+            justify-content: space-evenly;            
+            flex-direction: column;
+            text-align: center;
+            font-weight: bolder;
+        }
+        #blank{
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+        #base{
+            width: 22%;
+            height: auto;
+            margin: auto;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 2px;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 40px;
+            color: rgb(2, 121, 121);
+        }
+        #red{
+            background-color: red;
+            color: white;
+        }
+        #black{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="base">
+        <div class="grid">
+            <div id="blank"></div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div id="black">+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div id="black">-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div id="black">x</div>
+            <div id="red">C</div>
+            <div>0</div>
+            <div id="black">=</div>
+            <div id="black">/</div>
+        </div>
+    </div>
+</body>
+</html>

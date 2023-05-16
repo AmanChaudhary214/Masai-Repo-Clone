@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard</title>
+    <style>
+        .keyboard{
+            border-radius: 15px;
+            display: grid;
+            width: 80%;
+            height: 200px;
+            margin: auto;
+            grid-template-columns: repeat(12,1fr);
+            background-color: black;
+            gap: 10px;
+            text-align: center;
+            padding: 25px;
+        }
+        .keyboard>div{
+            background-color: rgb(36, 34, 34);
+            color: rgb(14, 151, 210);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }    
+        #enter{
+            grid-column-start: 11;
+            grid-column-end: 13;
+        }
+        #shift{
+            grid-column-start: 11;
+            grid-column-end: 13;
+        }
+        #space{
+            grid-column-start: 5;
+            grid-column-end: 9;
+        }
+    </style>
+</head>
+<body>
+    <div class="keyboard">
+        <div>~</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>0</div>
+        <div>delete</div>
+        <div>Tab</div>
+        <div>q</div>
+        <div>w</div>
+        <div>e</div>
+        <div>r</div>
+        <div>t</div>
+        <div>y</div>
+        <div>u</div>
+        <div>i</div>
+        <div>o</div>
+        <div>p</div>
+        <div>\</div>
+        <div>Caps</div>
+        <div>a</div>
+        <div>s</div>
+        <div>d</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div id="enter">Enter</div>
+        <div>Shift</div>
+        <div>z</div>
+        <div>x</div>
+        <div>c</div>
+        <div>v</div>
+        <div>b</div>
+        <div>n</div>
+        <div>m</div>
+        <div><</div>
+        <div>></div>
+        <div id="shift">Shift</div>
+        <div>Windows</div>
+        <div>Ctrl</div>
+        <div>Option</div>
+        <div>Alt</div>
+        <div id="space">Space</div>
+        <div>Alt</div>
+        <div>Option</div>
+        <div>left Arrow</div>
+        <div>right Arrow</div>
+    </div>
+</body>
+</html>

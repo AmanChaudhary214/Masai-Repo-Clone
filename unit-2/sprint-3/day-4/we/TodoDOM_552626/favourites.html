@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    >
+    <link rel="stylesheet" href="index.css">
+    <title>Favourites Pages</title>
+</head>
+
+<body>
+    <h1>Favourites Page</h1>
+    <table>
+        <!-- Dont change order of columns -->
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Append your output to tbody -->
+        </tbody>
+    </table>
+</body>
+
+</html>
+<script>
+    let favourites = JSON.parse(localStorage.getItem("fav"))
+
+    displayTable(favourites)
+
+    function displayTable(favourites) {
+        document.querySelector("tbody").innerHTML = "";
+        for (let i = 0; i < favourites.length; i++) {
+            let row = document.createElement("tr");
+            document.querySelector("tbody").append(row);
+
+            let td1 = document.createElement("td");
+            td1.innerText = favourites[i].taskName;
+            let td2 = document.createElement("td");
+            td2.innerText = favourites[i].taskPriority;
+            if (favourites[i].taskPriority == "High") {
+                td2.style.backgroundColor = "red";
+            }
+            else if (favourites[i].taskPriority == "Low") {
+                td2.style.backgroundColor = "green";
+            }
+            row.append(td1, td2);
+        }
+    }
+</script>

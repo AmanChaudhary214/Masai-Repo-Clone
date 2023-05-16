@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        .cont {
+            display: grid;
+            grid-template-areas: 
+                "one one one one"
+                "two three four five";
+            gap: 10px;
+        }
+        .cont>div:nth-child(1) {
+            grid-area: one;
+            background-color: yellow;
+        }
+
+        .cont>div:nth-child(2) {
+            grid-area: two;
+            background-color: red;
+        }
+
+        .cont>div:nth-child(3) {
+            grid-area: three;
+            background-color: yellowgreen;
+        }
+
+        .cont>div:nth-child(4) {
+            grid-area: four;
+            background-color: blue;
+        }
+
+        .cont>div:nth-child(5) {
+            grid-area: five;
+            background-color: gray;
+        }
+
+        .cont>div:nth-child(1)~div {
+            height: 100px;
+        }
+        @media all and (min-width:601px) and (max-width:900px) {
+            .cont {
+                grid-template-areas: 
+                    "one one"
+                    "two four"
+                    "three five";
+            }
+        }
+        @media all and (min-width:1px) and (max-width:600px) {
+            .cont {
+                grid-template-areas: 
+                    "one"
+                    "two"
+                    "five"
+                    "three"
+                    "four";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div>Navigation</div>
+        <div>Box 1</div>
+        <div>Box 2</div>
+        <div>Box 3</div>
+        <div>Box 4</div>
+    </div>
+</body>
+
+</html>

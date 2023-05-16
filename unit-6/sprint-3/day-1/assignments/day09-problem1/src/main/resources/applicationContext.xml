@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				   https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="t1" class="dto.Tourist">
+		<constructor-arg name="name" value="Aman Chaudhary"/>
+		<constructor-arg name="age" value="24"/>
+		<constructor-arg name="aadhar_id" value="645285856694"/>
+    </bean>
+    
+    <bean id="t2" class="dto.Tourist">
+		<constructor-arg name="name" value="Karan Sharma"/>
+		<constructor-arg name="age" value="25"/>
+		<constructor-arg name="aadhar_id" value="123456789123"/>
+    </bean>
+    
+    <bean id="t3" class="dto.Tourist">
+		<constructor-arg name="name" value="Hemant Sharma"/>
+		<constructor-arg name="age" value="26"/>
+		<constructor-arg name="aadhar_id" value="987644321501"/>
+    </bean>
+    
+    <bean id="date" class="java.sql.Date" factory-method="valueOf">
+        <constructor-arg value="2010-01-31" />
+    </bean>
+    <bean id="hp" class="dto.HolidayPackage">
+		<property name="package_name" value="WaytoHeaven"/>
+		<property name="tourist" ref="t1"/>
+		<property name="package_expiry" ref="date"/>
+		<property name="package_price" value="50000"/>
+	</bean>
+    
+ 
+</beans>

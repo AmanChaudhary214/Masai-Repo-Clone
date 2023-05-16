@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch-Products</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 25px;
+        }
+
+        #container>div {
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 10px;
+        }
+
+        #container>div>img {
+            width: 100%;
+        }
+
+        input {
+            padding: 15px;
+            width: 300px;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin-bottom: 20px;
+        }
+
+        body>button {
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin-bottom: 20px;
+            margin-left: 100px;
+        }
+
+        #container button {
+            margin: 0px 10px 0px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" oninput="search()" placeholder="Search products here..."/>
+    <button>My Wishlist</button>
+    <button>My Cart</button>
+    <div id="container"></div>
+</body>
+
+</html>
+
+<script>
+    let bag = [];
+    let url = "https://fakestoreapi.com/products";
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            bag = data;
+            displayCard(data)
+        });
+
+    function search() {
+        let search = document.querySelector("input").value;
+        let newdata = bag.filter(function (elem) {
+            return elem.title.toLowerCase().includes(search.toLowerCase());
+        });
+        displayCard(newdata);
+    }
+
+    function displayCard(data) {
+        document.querySelector("#container").innerHTML = "";
+        data.forEach(function (elem) {
+            let div = document.createElement("div");
+
+            let image = document.createElement("img");
+            image.setAttribute("src",elem.image);
+            let title = document.createElement("h2");
+            title.innerText = elem.title;
+            let des = document.createElement("p");
+            des.innerText = elem.description;
+            let cost = document.createElement("p");
+            cost.innerText = "Price : "+elem.price+" $";
+            let rating = document.createElement("p");
+            rating.innerText = "Ratings : "+elem.rating.rate;
+            let wishlist = document.createElement("button");
+            wishlist.innerText = "Add to Wishlist";
+            let cart = document.createElement("button");
+            cart.innerText = "Add to Cart";
+
+            div.append(image, title, des, cost, rating, wishlist, cart);
+            document.querySelector("#container").append(div);
+        })
+    }
+</script>

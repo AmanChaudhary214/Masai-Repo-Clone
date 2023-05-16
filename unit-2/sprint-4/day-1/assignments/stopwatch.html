@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/b06a377e67.js" crossorigin="anonymous"></script>
+    <title>stopwatch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        #stopwatch {
+            margin-top: 5rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            font-size: xx-large;
+        }
+
+        #timer {
+            padding: 10px;
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            border: 0px;
+            border-radius: 5%;
+            width: 300px;
+            height: 100px;
+            align-items: center;
+            margin: 40px auto;
+            color: red;
+            box-shadow: 4px 4px 30px black;
+            transition: all 2s;
+        }
+
+        #timer:hover {
+            box-shadow: 4px 4px 60px rgb(255, 255, 255);
+            cursor: pointer;
+        }
+
+        #options {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #options>div {
+            font-family: sans-serif;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            margin: 20px;
+            font-size: xx-large;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="stopwatch">
+        <h1>STOPWATCH</h1>
+        <div id="timer">
+            <dv id="hours">0</dv>
+            :
+            <div id="minutes">0</div>
+            :
+            <div id="seconds">0</div>
+            :
+            <div id="milliseconds">0</div>
+        </div>
+        <div id="options">
+            <div onclick="startTimer()">START</div>
+            <div onclick="stopTimer()">STOP</div>
+            <div onclick="ResetTimer()">RESET</div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let milliseconds = 0;
+
+    let startTimer = function () {
+        millisecInt = setInterval(function () {
+            milliseconds = milliseconds > 1000 ? 1 : milliseconds + 1;
+            setTimeToHTML(hours, minutes, seconds, milliseconds);
+        }, 1);
+
+        secondsInt = setInterval(function () {
+            seconds = seconds > 59 ? 1 : seconds + 1;
+        }, 1000);
+
+        minutesInt = setInterval(function () {
+            minutes = minutes > 59 ? 1 : minutes + 1;
+        }, 1000 * 60);
+
+        hoursInt = setInterval(function () {
+            hours = hours > 59 ? 1 : hours + 1;
+        }, 1000 * 60 * 60);
+    };
+    let stopTimer = function () {
+        clearInterval(millisecInt);
+        clearInterval(secondsInt);
+        clearInterval(minutesInt);
+        clearInterval(hoursInt);
+    };
+    let ResetTimer = function () {
+        stopTimer();
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+        milliseconds = 0;
+        setTimeToHTML(hours, minutes, seconds, milliseconds);
+    };
+
+    let setTimeToHTML = function (hours, minutes, seconds, milliseconds) {
+        document.getElementById("hours").innerText =
+            hours.length == 1 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText =
+            minutes.length == 1 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText =
+            seconds.length == 1 ? "0" + seconds : seconds;
+        document.getElementById("milliseconds").innerText = milliseconds;
+    };
+</script>

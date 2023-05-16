@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch ToDo</title>
+    <style>
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        table td,
+        table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #8caacf;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        table th {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            text-align: left;
+            background-color: #0468aa;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ToDo App</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+
+</html>
+<script>
+    let url = "https://jsonplaceholder.typicode.com/todos";
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => displayTable(data))
+        .catch((error) => console.log(error));
+
+    function displayTable(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            let tr = document.createElement("tr");
+
+            let td1 = document.createElement("td");
+            td1.innerText = arr[i].id;
+            let td2 = document.createElement("td");
+            td2.innerText = arr[i].title;
+            let td3 = document.createElement("td");
+            td3.innerText = arr[i].complete;
+
+            tr.append(td1, td2, td3);
+            document.querySelector("tbody").append(tr);
+        }
+    }
+</script>

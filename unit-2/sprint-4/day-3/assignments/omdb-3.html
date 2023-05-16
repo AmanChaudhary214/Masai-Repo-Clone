@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Movie App</title>
+    <style>
+        /* Write necessery styles here  */
+        #movie_container {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        #movie_container>div {
+            text-align: center;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        #movie_container>div>image {
+            width: 75%;
+        }
+
+        #serach {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="serach">
+        <input type="text" id="search-inp" placeholder="Search" />
+        <button id="search-btn" onclick="search()">Search</button>
+    </div>
+    <div id="movie_container"></div>
+</body>
+
+<script>
+    // Write necessery JS here
+
+    let url = "https://636b8d177f47ef51e133a376.mockapi.io/movies";
+
+    let movies = [];
+
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            movies = data;
+            console.log(data)
+            displayMovies(data);
+        });
+
+    function search() {
+        let search = document.querySelector("#search-inp").value;
+        let searchdata = movies.filter(function (elem) {
+            return elem.name.toLowerCase().includes(search.toLowerCase());
+        });
+        if (searchdata.length == 0) {
+            alert("Movie not found");
+        }
+        else {
+            displayMovies(searchdata);
+        }
+    }
+
+    function displayMovies(data) {
+
+        document.querySelector("#movie_container").innerHTML = "";
+        data.forEach(function (elem) {
+            let div = document.createElement("div");
+
+            let image = document.createElement("img");
+            image.setAttribute("src", elem.avatar);
+            let name = document.createElement("h3");
+            name.innerText = elem.name;
+            let rating = document.createElement("h3");
+            rating.innerText = "IMDB: " + elem.ratings;
+
+            let tag;
+            if (elem.ratings >= 8.5) {
+                tag = document.createElement("p");
+                tag.innerText = "Recommended";
+            }
+            else {
+                tag = document.createElement("p");
+                tag.innerText = "";
+            }
+
+            div.append(image, name, rating, tag);
+            document.querySelector("#movie_container").append(div);
+        });
+    }
+
+</script>
+
+</html>

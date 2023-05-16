@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        
+    <bean id="gm" class="Workout.GymManager" lazy-init="default" init-method="initialize" destroy-method="shutDown">
+		<property name="gymPrograms">
+			<map>
+				<entry key-ref="wp1" value-ref="mb1"></entry>
+				<entry key-ref="wp2" value-ref="mb2"></entry>
+				<entry key-ref="wp3" value-ref="mb3"></entry>
+			</map>
+		</property>
+	</bean>
+	
+
+    <bean id="mb1" class="Workout.Member">
+		<constructor-arg name="memberId" value="1"></constructor-arg>
+		<constructor-arg name="memberName" value="aman"></constructor-arg>
+		<constructor-arg name="age" value="24"></constructor-arg>
+		<constructor-arg name="membershipType" value="monthly"></constructor-arg>
+	</bean>
+    <bean id="mb2" class="Workout.Member">
+		<constructor-arg name="memberId" value="2"></constructor-arg>
+		<constructor-arg name="memberName" value="hemant"></constructor-arg>
+		<constructor-arg name="age" value="26"></constructor-arg>
+		<constructor-arg name="membershipType" value="yearly"></constructor-arg>
+	</bean>
+    <bean id="mb3" class="Workout.Member">
+		<constructor-arg name="memberId" value="3"></constructor-arg>
+		<constructor-arg name="memberName" value="shubham"></constructor-arg>
+		<constructor-arg name="age" value="25"></constructor-arg>
+		<constructor-arg name="membershipType" value="quarterly"></constructor-arg>
+	</bean>
+	
+    
+    <bean id="wp1" class="Workout.WorkoutProgram">
+		<constructor-arg name="programId" value="1"></constructor-arg>
+		<constructor-arg name="programName" value="Cardio"></constructor-arg>
+		<constructor-arg name="programDuration" value="1 month"></constructor-arg>
+	</bean>
+    <bean id="wp2" class="Workout.WorkoutProgram">
+		<constructor-arg name="programId" value="2"></constructor-arg>
+		<constructor-arg name="programName" value="Strength"></constructor-arg>
+		<constructor-arg name="programDuration" value="12 months"></constructor-arg>
+	</bean>
+    <bean id="wp3" class="Workout.WorkoutProgram">
+		<constructor-arg name="programId" value="3"></constructor-arg>
+		<constructor-arg name="programName" value="Yoga"></constructor-arg>
+		<constructor-arg name="programDuration" value="3 months"></constructor-arg>
+	</bean>
+ 
+</beans>

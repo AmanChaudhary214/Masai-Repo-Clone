@@ -1,0 +1,166 @@
+============================== PROBLEM 1 ==============================
+
+create database sb101day10;
+use sb101day01;
+show tables;
+
+create table deposit
+(
+ACTNO varchar(25),
+CNAME varchar(20),
+BNAME varchar(20),
+AMOUNT int,
+ADATE date
+);
+
+
+create table branch
+(
+BNAME varchar(20),
+CITY varchar(20)
+);
+
+
+create table customer
+(
+CNAME varchar(20),
+CITY varchar(20)
+);
+
+
+create table borrow
+(
+LOANNO varchar(5),
+CNAME varchar(20),
+BNAME varchar(20),
+AMOUNT INT
+);
+
+
+
+============================== PROBLEM 2 ==============================
+
+1)-
+insert into deposit(ACTNO, CNAME, BNAME, AMOUNT, ADATE) values('100', 'ANIL', 'VRCE', 1000.00, '1995-03-01');
+insert into deposit(ACTNO, CNAME, BNAME, AMOUNT, ADATE) values('101', 'SUNIL', 'MGROAD', 5000.00, '1996-01-04';
+insert into deposit(ACTNO, CNAME, BNAME, AMOUNT, ADATE) values('102', 'RAHUL', 'KAROLBAGH', 3500.00, '1995-11-17');
+insert into deposit(ACTNO, CNAME, BNAME, AMOUNT, ADATE) values('103', 'MADHURI', 'CHANDNI', 1200.00, '1995-12-17');
+insert into deposit(ACTNO, CNAME, BNAME, AMOUNT, ADATE) values('104', 'PRAMOD', 'MGROAD', 3000.00, '1996-03-27');
+insert into deposit(ACTNO, CNAME, BNAME, AMOUNT, ADATE) values('105', 'SANDIP', 'KAROLBAGH', 2000.00, '1996-03-31');
+
+
+2)-
+insert into branch(BNAME, CITY) values('VRCE', 'NAGPUR');
+insert into branch(BNAME, CITY) values('KAROLBAGH', 'DELHI');
+insert into branch(BNAME, CITY) values('CHANDNI', 'DELHI');
+insert into branch(BNAME, CITY) values('MGROAD', 'BANGALORE');
+
+3)-
+insert into customer(CNAME, CITY) values('ANIL', 'CALCUTTA');
+insert into customer(CNAME, CITY) values('RAHUL', 'BARODA');
+insert into customer(CNAME, CITY) values('MADHURI', 'NAGPUR');
+insert into customer(CNAME, CITY) values('PRAMOD', 'NAGPUR');
+insert into customer(CNAME, CITY) values('SUNIL', 'DELHI');
+
+4)-
+insert into borrow(LOANNO, CNAME, BNAME, AMOUNT) values('201', 'ANIL', 'VRCE', 1000.00);
+insert into borrow(LOANNO, CNAME, BNAME, AMOUNT) values('206', 'RAHUL', 'KAROLBAGH', 5000.00);
+insert into borrow(LOANNO, CNAME, BNAME, AMOUNT) values('311', 'SUNIL', 'MGROAD', 3000.00);
+insert into borrow(LOANNO, CNAME, BNAME, AMOUNT) values('321', 'MADHURI', 'CHANDNI', 2000.00);
+insert into borrow(LOANNO, CNAME, BNAME, AMOUNT) values('375', 'PRAMOD', 'MGROAD', 8000.00);
+
+4). Retrieve all the records from the table BORROW where the amount in between 2000 and 3000
+select * from borrow where AMOUNT BETWEEN 2000 AND 3000;
+
+5. Retrieve the details from the table DEPOSIT
+select * from deposit;
+
+6. Retrieve the customer name, account no of DEPOSIT
+select CNAME, ACTNO from deposit;
+
+7. Retrieve the name of the customer living in NAGPUR.
+select CNAME from customer where CITY = 'NAGPUR';
+
+8. Retrieve the name of the customers who opened accounts after 17-NOV-95.
+select CNAME from deposit where ADATE > '1995-11-17';
+
+9. Retrieve the account number and amount of the customer having an account opened between 01-12-95 and 01-06.96.
+select ACTNO, AMOUNT from deposit where ADATE BETWEEN '1995-12-01' AND '1996-06-01';
+
+10. Retrieve all the records from the table DEPOSIT where CNAME begins with C.
+select * from deposit where CNAME LIKE 'C%';
+
+11. Retrieve all the records from the table BORROW where the 2nd character of CNAME is U.
+select * from borrow where CNAME LIKE '_U%';
+
+12. Retrieve all the records from the table DEPOSIT where the branch name is CHANDNI or MG ROAD.
+select * from deposit where BNAME = 'MGROAD' OR BNAME = 'CHANDNI';
+
+13. Retrieve all the records from the table DEPOSIT where the branch name is not CHANDNI or MG ROAD.
+select * from deposit where BNAME != 'MGROAD' AND BNAME != 'CHANDNI';
+
+14. Retrieve all the records from DEPOSIT where the amount > 1000 and arrange the customer name in ascending order.
+select * from deposit where AMOUNT > 1000 order by CNAME;
+
+15. Retrieve all the records from DEPOSIT where the amount > 1000 and arrange the customer name in descending order.
+select * from deposit where AMOUNT > 1000 order by CNAME desc;
+
+16. Retrieve customer details from the BORROW table where the third character of the customer name is either ‘A’ or ‘D’.
+select * from borrow where CNAME LIKE '__A%' OR '__D%';
+
+17. Retrieve all the records from the table BORROW where the amount is not between 2000 and 8000.
+select * from borrow where AMOUNT BETWEEN 2000 AND 8000;
+
+18. Find out the unique records from the table DEPOSIT
+select DISTINCT CNAME from deposit;
+
+19. Update the amount of all depositors in the deposit table by giving them 10% interest (i.e. amount=amount * 0.1) where the branch is VRCE.
+update deposit set AMOUNT = AMOUNT + (AMOUNT*0.1) where BNAME = 'VRCE';
+
+20. Update the amount of all depositors in the deposit table by giving them 10% interest where the branch is VRCE and the customer name is ANIL.
+update deposit set AMOUNT = AMOUNT + (AMOUNT*0.1) where BNAME = 'VRCE' AND CNAME = 'ANIL';
+
+
+
+============================== PROBLEM 3 ==============================
+
+create table student
+(
+NAME varchar(20),
+ROLLNO int,
+BRANCH varchar(20),
+CITY varchar(20)
+);
+
+insert into student(NAME, ROLLNO, BRANCH, CITY) values('VIJAYA', 150, 'CSE', 'CHENNAI');
+insert into student(NAME, ROLLNO, BRANCH, CITY) values('SITA', 202, 'ETC', 'KOLKATA');
+insert into student(NAME, ROLLNO, BRANCH, CITY) values('RAVI', 300, 'EEE', 'DELHI');
+insert into student(NAME, ROLLNO, BRANCH, CITY) values('BASU', 165, 'ETC', 'CHENNAI');
+insert into student(NAME, ROLLNO, BRANCH, CITY) values('RASMI', 107, 'ETC', 'RKL');
+insert into student(NAME, ROLLNO, BRANCH, CITY) values('KARAN', 111, 'CSE', 'CTC');
+insert into student(NAME, ROLLNO, BRANCH, CITY) values('REKHA', 117, 'BME', 'BBSR');
+
+1. Count the number of students in each department.
+select BRANCH, COUNT(*) AS 'Number of Students' from Student group by BRANCH;
+
+2. Count the number of students in each department where the department name starts with ‘E’.
+select BRANCH, COUNT(*) AS 'Number of Students' from Student group by BRANCH having BRANCH LIKE 'E%';
+
+3. Add a field called MARKS to the table STUDENT which can hold a number up to 8 digit in length.
+alter table student add MARKS varchar(8);
+
+4. Modify the field:” NAME” of the table STUDENT to hold a maximum of 25 characters.
+alter table student modify NAME varchar(25);
+
+5. Delete all rows from the table STUDENT where the branch is ETC.
+delete from student where BRANCH = 'ETC';
+
+6. Rename the table STUDENT to STUDINFORMATION.
+rename table student to sudentInformation;
+
+7. Delete all the data part from the table STUDENT.
+delete * from student;
+
+8. Destroy the table STUDENT.
+drop table student;
+

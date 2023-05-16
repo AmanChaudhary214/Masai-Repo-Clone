@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Page</title>
+  <style>
+    #nav {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    }
+
+    #filter {
+      margin: auto;
+      margin-top: 40px;
+      height: 35px;
+      width: 130px;
+      display: block;
+      text-align: center;
+    }
+
+    table {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 60%;
+      margin: auto;
+      margin-top: 50px;
+      border-collapse: collapse;
+    }
+
+    th {
+      border: 1px solid white;
+      height: 50px;
+      background-color: goldenrod;
+    }
+
+    tbody {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav">
+    <h1>Masai Todo App</h1>
+    <a href="./index.html">Home Page</a>
+    <a href="./completed.html">Completed Tasks</a>
+    <a href="./favourites.html">Favourites</a>
+  </div>
+
+  <select id="filter">
+    <option value="">Select Priority</option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="Urgent">Urgent</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Task Name</th>
+        <th>Task Type</th>
+        <th>Completion Date</th>
+        <th>Priority</th>
+        <th>Add to Favourites</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Append the elements here using JS and DOM  -->
+    </tbody>
+  </table>
+</body>
+<script src="./script/complete.js"></script>
+
+</html>

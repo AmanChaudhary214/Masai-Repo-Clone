@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				   https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="rs" class="Zomato.RestaurantService"></bean>
+    
+    <bean id="os" class="Zomato.OrderService">
+		<property name="restService" ref="rs"></property>
+	</bean>
+    
+    <bean id="del" class="Zomato.DeliveryService">
+		<property name="orderService" ref="os"></property>
+	</bean>
+    
+</beans>

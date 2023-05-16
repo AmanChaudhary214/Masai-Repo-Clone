@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Web Movie App</title>
+  <style>
+    /* Write necessery styles here  */
+    #movie_container {
+      width: 90%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    #movie_container>div {
+      text-align: center;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    #movie_container>div>image {
+      width: 75%;
+    }
+
+    #serach {
+      text-align: center;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="serach">
+    <input type="text" id="search-inp" placeholder="Search" />
+    <button id="search-btn" onclick="search()">Search</button>
+  </div>
+  <div id="movie_container"></div>
+</body>
+
+<script>
+  // Write necessery JS here
+
+  let url = "http://www.omdbapi.com/?apikey=7fd2edd0&s=thor";
+
+  let movies = [];
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      movies = data["Search"];
+      let newData = data["Search"];
+      displayMovies(newData);
+    });
+
+  function search() {
+    let search = document.querySelector("#search-inp").value;
+    let searchdata = movies.filter(function (elem) {
+      return elem.Title.toLowerCase().includes(search.toLowerCase());
+    });
+    if (searchdata.length==0) {
+        alert("Movie not found");
+    }
+    else {
+        displayMovies(searchdata);
+    }
+  }
+
+  function displayMovies(newData) {
+
+    document.querySelector("#movie_container").innerHTML = "";
+    newData.forEach(function (elem) {
+      let div = document.createElement("div");
+
+      let image = document.createElement("img");
+      image.setAttribute("src", elem.Poster);
+      let name = document.createElement("h3");
+      name.innerText = elem.Title;
+
+      div.append(image, name);
+      document.querySelector("#movie_container").append(div);
+    });
+  }
+
+</script>
+
+</html>

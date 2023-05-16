@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Evaluation_1</groupId>
+  <artifactId>Evaluation1_Problem1</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Evaluation1_Problem1</name>
+  <description>Evaluation1 Problem1</description>
+  
+  <properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  	
+</project>

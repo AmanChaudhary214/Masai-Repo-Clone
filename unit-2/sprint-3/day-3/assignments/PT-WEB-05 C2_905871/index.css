@@ -1,0 +1,72 @@
+h1 {
+  text-decoration: underline;
+  text-align: center;
+  color: rgb(0, 116, 161);
+}
+
+body>div {
+  margin: auto;
+  margin-top: 75px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 2px;
+  margin: auto;
+  width: 20%;
+  padding: 20px;
+}
+
+form>input {
+  width: 95%;
+  height: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+form>input:last-child {
+  width: 97%;
+  height: 35px;
+  border-radius: 15px;
+  border: 0px;
+  background-color: rgb(12, 137, 186);
+  margin-top: 10px;
+}
+
+form>#dept {
+  width: 97%;
+  height: 27px;
+  margin: 2px 0px 10px;
+  border: 1px solid #ccc;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 0px;
+  text-align: center;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0468aa;
+  color: white;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #8caacf;
+}

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans"
+	       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        				   https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+		<!-- Artist bean creation -->
+		<bean id="a1" class="model.Artist">
+			<constructor-arg name="id" value="1"/>
+			<constructor-arg name="name" value="Aman"/>
+			<constructor-arg name="age" value="23"/>
+			<constructor-arg name="noOfArtworksCreated" value="10"/>
+			<constructor-arg name="email" value="aman@gmail.com"/>
+			<constructor-arg name="mobile" value="9876543210"/>
+		</bean>
+		
+		<bean id="a2" class="model.Artist">
+			<constructor-arg name="id" value="2"/>
+			<constructor-arg name="name" value="Hemant"/>
+			<constructor-arg name="age" value="23"/>
+			<constructor-arg name="noOfArtworksCreated" value="20"/>
+			<constructor-arg name="email" value="aman@gmail.com"/>
+			<constructor-arg name="mobile" value="9876543210"/>
+		</bean>
+		
+		<bean id="a3" class="model.Artist">
+			<constructor-arg name="id" value="3"/>
+			<constructor-arg name="name" value="Neha"/>
+			<constructor-arg name="age" value="23"/>
+			<constructor-arg name="noOfArtworksCreated" value="15"/>
+			<constructor-arg name="email" value="aman@gmail.com"/>
+			<constructor-arg name="mobile" value="9876543210"/>
+		</bean>
+		
+		<bean id="a4" class="model.Artist">
+			<constructor-arg name="id" value="4"/>
+			<constructor-arg name="name" value="Karan"/>
+			<constructor-arg name="age" value="23"/>
+			<constructor-arg name="noOfArtworksCreated" value="18"/>
+			<constructor-arg name="email" value="aman@gmail.com"/>
+			<constructor-arg name="mobile" value="9876543210"/>
+		</bean>
+		
+		<bean id="a5" class="model.Artist">
+			<constructor-arg name="id" value="5"/>
+			<constructor-arg name="name" value="Vishal"/>
+			<constructor-arg name="age" value="23"/>
+			<constructor-arg name="noOfArtworksCreated" value="12"/>
+			<constructor-arg name="email" value="aman@gmail.com"/>
+			<constructor-arg name="mobile" value="9876543210"/>
+		</bean>
+		
+		<bean id="a6" class="model.Artist">
+			<constructor-arg name="id" value="6"/>
+			<constructor-arg name="name" value="Ankit"/>
+			<constructor-arg name="age" value="23"/>
+			<constructor-arg name="noOfArtworksCreated" value="5"/>
+			<constructor-arg name="email" value="aman@gmail.com"/>
+			<constructor-arg name="mobile" value="9876543210"/>
+		</bean>
+		
+		
+		<!-- Artwork bean creation -->
+		<bean id="aw1" class="model.Artwork">
+			<constructor-arg name="id" value="1"/>
+			<constructor-arg name="name" value="Abstract"/>
+			<constructor-arg name="creationTime" value="2"/>
+		</bean>
+		
+		<bean id="aw2" class="model.Artwork">
+			<constructor-arg name="id" value="2"/>
+			<constructor-arg name="name" value="Contrast"/>
+			<constructor-arg name="creationTime" value="5"/>
+		</bean>
+		
+		<bean id="aw3" class="model.Artwork">
+			<constructor-arg name="id" value="3"/>
+			<constructor-arg name="name" value="Nature"/>
+			<constructor-arg name="creationTime" value="10"/>
+		</bean>
+		
+		<bean id="aw4" class="model.Artwork">
+			<constructor-arg name="id" value="4"/>
+			<constructor-arg name="name" value="Citylife"/>
+			<constructor-arg name="creationTime" value="8"/>
+		</bean>
+		
+	
+		<!-- ArtistService bean creation -->
+		<bean id="as" class="model.ArtistService">
+			<property name="artworkMap">
+				<map>
+					<entry key-ref="a1" value-ref="aw1"/>
+					<entry key-ref="a2" value-ref="aw2"/>
+					<entry key-ref="a3" value-ref="aw3"/>
+					<entry key-ref="a4" value-ref="aw4"/>
+				</map>
+			</property>
+			<property name="artistList">
+				<list>
+					<ref bean="a1"/>
+					<ref bean="a2"/>
+					<ref bean="a3"/>
+					<ref bean="a4"/>
+					<ref bean="a5"/>
+					<ref bean="a6"/>
+				</list>
+			</property>
+		</bean>
+	        
+	        	
+	</beans>

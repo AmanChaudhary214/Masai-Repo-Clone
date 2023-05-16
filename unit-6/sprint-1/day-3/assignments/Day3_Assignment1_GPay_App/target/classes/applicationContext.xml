@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				   https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="ad" class="GPay.AccountDetailsDAO">
+		<property name="balance" value="10000.0"></property>
+	</bean>
+    
+    <bean id="ts" class="GPay.TransactionService">
+		<property name="accDetails" ref="ad"></property>
+	</bean>
+    
+    <bean id="pip" class="GPay.PaymentPresentation">
+		<property name="tService" ref="ts"></property>
+	</bean>
+    
+</beans>

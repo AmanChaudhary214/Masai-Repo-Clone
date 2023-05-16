@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="or" class="Salesforce.Oracle">
+		<property name="url" value="abcdefghijklmnopqrstuvwxyz"></property>
+		<property name="username" value="aman"></property>
+		<property name="password" value="aman"></property>
+	</bean>
+    
+    <bean id="my" class="Salesforce.MySQL">
+		<property name="url" value="abcdefghijklmnopqrstuvwxyz"></property>
+		<property name="username" value="hemant"></property>
+		<property name="password" value="hemant"></property>
+	</bean>
+    
+    <bean id="ms" class="Salesforce.MsSQL">
+		<property name="url" value="abcdefghijklmnopqrstuvwxyz"></property>
+		<property name="username" value="shubham"></property>
+		<property name="password" value="shubham"></property>
+	</bean>
+    
+ 	<bean id="ser" class="Salesforce.Service">
+		<constructor-arg name="demo" ref="or"></constructor-arg>
+	</bean>
+ 
+</beans>

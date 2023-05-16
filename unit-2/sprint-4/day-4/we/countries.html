@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries Data</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 25px;
+        }
+
+        #container>div {
+            text-align: left;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 10px;
+        }
+
+        #container>div>img {
+            width: 100%;
+            border-radius: 3px;
+        }
+
+        select {
+            padding: 10px;
+            width: 120px;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin: 20px 10px;
+        }
+
+        @media all and (min-width:400px) and (max-width:800px) {
+            #container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media all and (min-width:100px) and (max-width:399px) {
+            #container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <select id="population" onchange="population()">
+        <option value="LTH">Low to High</option>
+        <option value="HTL">High to Low</option>
+    </select>
+    <select id="region" onchange="region()">
+        <option value="Americas">Americas</option>
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+        <option value="Australia">Australia</option>
+        <option value="Oceania">Oceania</option>
+    </select>
+    <div id="container"></div>
+</body>
+
+</html>
+<script>
+    let url = "https://restcountries.com/v3.1/all";
+
+    let arr = [];
+
+    async function getData() {
+        try {
+            let res = await fetch(url);
+            let out = await res.json();
+            arr = [...out];
+            displayData(out);
+        }
+        catch (err) {
+            alert(err);
+        }
+    }
+
+    getData();
+
+    function population() {
+        let selected = document.querySelector("#population").value;
+        if (selected=="LTH") {
+            arr.sort(function(a,b){return a.population-b.population});
+        }
+        else if (selected=="HTL") {
+            arr.sort(function(a,b){return b.population-a.population});
+        }
+        displayData(arr);
+    }
+
+    function region() {
+        let selected = document.querySelector("#region").value;
+        let newOut = arr.filter(function(elem) {
+            return elem.region == selected;
+        });
+        displayData(newOut);
+    }
+
+    function displayData(out) {
+        document.querySelector("#container").innerHTML = "";
+        out.forEach(function (elem) {
+            let div = document.createElement("div");
+
+            let flag = document.createElement("img");
+            flag.setAttribute("src", elem.flags.png);
+            let name = document.createElement("h3");
+            name.innerText = elem.name.common;
+            let population = document.createElement("p");
+            population.innerText = "Population: " + elem.population;
+            let region = document.createElement("p");
+            region.innerText = "Region: " + elem.region;
+            let capital = document.createElement("p");
+            capital.innerText = "Capital: " + elem.capital;
+
+            div.append(flag, name, population, region, capital);
+            document.querySelector("#container").append(div);
+        });
+    }
+
+</script>

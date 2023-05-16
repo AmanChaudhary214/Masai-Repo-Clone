@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    h1,p,h3,h5,h6{
+      text-align: center;
+    }
+
+    #doctors {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    #doctors>div{
+      padding-bottom: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    #doctors img {
+      width: 100%;
+    }
+    #doctors>div>div {
+      display: flex;
+    }
+    #doctors>div>div {
+      justify-content: space-around;
+    }
+    #doctors>div>div>button:nth-child(1) {
+      height: 30px;
+      width: 85px;
+      border-radius: 10px;
+      background-color: rgb(240, 240, 240);
+      border: 0px;
+      color: skyblue;
+    }
+    #doctors>div>div>button:nth-child(2) {
+      height: 30px;
+      width: 85px;
+      border-radius: 10px;
+      background-color: orangered;
+      border: 0px;
+      color: white;
+    }
+
+    #service {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    #service>div {
+      text-align: center;
+    }
+
+    @media all and (min-width: 451px) and (max-width: 750px) {
+      #doctors{
+        grid-template-columns: repeat(2,1fr);
+      }
+      #service{
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media all and (min-width: 100px) and (max-width: 450px) {
+      #doctors{
+        grid-template-columns: repeat(1,1fr);
+      }
+      #service{
+        grid-template-columns: repeat(1,1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <h1>Our Specialist</h1>
+    <p>
+      Green above he cattle god saw day multiply under fill in the cattle fowl
+      a all, living,<br>tree word link available in the service for subdue fruit.
+    </p>
+  </div>
+  <!-- Top-section -->
+  <div id="doctors">
+    <div>
+      <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp">
+      <h3>Ethel Davis</h3>
+      <h6>SR. FACULTY DATA SCIENCE</h6>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, doloribus?</p>
+      <div>
+        <button>Know More</button>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp">
+      <h3>Ethel Davis</h3>
+      <h6>SR. FACULTY DATA SCIENCE</h6>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, doloribus?</p>
+      <div>
+        <button>Know More</button>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp">
+      <h3>Ethel Davis</h3>
+      <h6>SR. FACULTY DATA SCIENCE</h6>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, doloribus?</p>
+      <div>
+        <button>Know More</button>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://preview.colorlib.com/theme/medino/assets/images/doctor1.jpg.webp">
+      <h3>Ethel Davis</h3>
+      <h6>SR. FACULTY DATA SCIENCE</h6>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, doloribus?</p>
+      <div>
+        <button>Know More</button>
+        <button>Book Now</button>
+      </div>
+    </div>
+    <!-- This section should have 4 child divs, each div should have image,h3,h6 and div for buttons -->
+  </div>
+
+  <!-- Bottom section  -->
+  <div id="service">
+    <div>
+      <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg">
+      <h5>Teeth Whiteening</h5>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam ducimus magni, dolorum quo necessitatibus
+        corruption?</p>
+    </div>
+    <div>
+      <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg">
+      <h5>Teeth Whiteening</h5>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam ducimus magni, dolorum quo necessitatibus
+        corruption?</p>
+    </div>
+    <div>
+      <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg">
+      <h5>Teeth Whiteening</h5>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam ducimus magni, dolorum quo necessitatibus
+        corruption?</p>
+    </div>
+    <div>
+      <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg">
+      <h5>Teeth Whiteening</h5>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam ducimus magni, dolorum quo necessitatibus
+        corruption?</p>
+    </div>
+    <div>
+      <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg">
+      <h5>Teeth Whiteening</h5>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam ducimus magni, dolorum quo necessitatibus
+        corruption?</p>
+    </div>
+    <div>
+      <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-04-16/bottom_132437.jpeg">
+      <h5>Teeth Whiteening</h5>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam ducimus magni, dolorum quo necessitatibus
+        corruption?</p>
+    </div>
+    <!-- This section should have 6 child divs, each div should have image,h5,p -->
+  </div>
+</body>
+
+</html>

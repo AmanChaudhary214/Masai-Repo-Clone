@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        .cont {
+            display: grid;
+            grid-template-areas: 
+                "nav nav"
+                "one two";
+            gap: 20px;
+        }
+        .cont>div:nth-child(1) {
+            grid-area: nav;
+            background-color: yellow;
+        }
+
+        .cont>div:nth-child(2) {
+            grid-area: one;
+            background-color: red;
+        }
+
+        .cont>div:nth-child(3) {
+            grid-area: two;
+            background-color: green;
+        }
+
+        .cont>div:nth-child(1)~div {
+            height: 200px;
+        }
+        @media all and (min-width:1px) and (max-width:501px) {
+            .cont {
+                grid-template-areas: 
+                    "nav"
+                    "one"
+                    "two";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div>Navigation</div>
+        <div>Left Box</div>
+        <div>Right Box</div>
+    </div>
+</body>
+
+</html>

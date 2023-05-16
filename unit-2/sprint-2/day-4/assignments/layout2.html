@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+        .cont {
+            display: grid;
+            width: 100%;
+            grid-template-areas:
+                "nav nav nav"
+                "one one two1"
+                "one one two2"
+                "one one two3";
+            gap: 15px 30px;
+        }
+
+        .cont>div:nth-child(1) {
+            grid-area: nav;
+            background-color: yellow;
+            height: 30px;
+        }
+
+        .cont>div:nth-child(2) {
+            grid-area: one;
+            background-color: red;
+            height: auto;
+        }
+
+        .cont>div:nth-child(3) {
+            grid-area: two1;
+            background-color: green;
+        }
+
+        .cont>div:nth-child(4) {
+            grid-area: two2;
+            background-color: green;
+        }
+
+        .cont>div:nth-child(5) {
+            grid-area: two3;
+            background-color: green;
+        }
+
+        .cont>div:nth-child(2)~div {
+            height: 100px;
+        }
+
+        .cont>div:nth-child(2) {
+            height: 330px;
+        }
+
+        @media all and (min-width:401px) and (max-width:800px) {
+            .cont {
+                grid-template-areas:
+                    "nav nav nav"
+                    "one one one"
+                    "one one one"
+                    "two1 two2 two3";
+            }
+
+            .cont>div:nth-child(2) {
+                height: 215px;
+            }   
+        }
+
+        @media all and (min-width:1px) and (max-width:400px) {
+            .cont {
+                grid-template-areas:
+                    "nav"
+                    "one"
+                    "one"
+                    "two1"
+                    "two2"
+                    "two3";
+            }
+
+            .cont>div:nth-child(2) {
+                height: 215px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <div>Navigation</div>
+        <div>Left Box</div>
+        <div>Right Box 1</div>
+        <div>Right Box 2</div>
+        <div>Right Box 3</div>
+    </div>
+</body>
+
+</html>

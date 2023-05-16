@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				   https://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="td1" class="Tour_Package.Tourist">
+		<constructor-arg name="name" value="Aman"></constructor-arg>
+		<constructor-arg name="age" value="24"></constructor-arg>
+		<constructor-arg name="aadhar_id" value="645285856694"></constructor-arg>
+	</bean>
+    <bean id="td2" class="Tour_Package.Tourist">
+		<constructor-arg name="name" value="Hemant"></constructor-arg>
+		<constructor-arg name="age" value="24"></constructor-arg>
+		<constructor-arg name="aadhar_id" value="123456789012"></constructor-arg>
+	</bean>
+    <bean id="td3" class="Tour_Package.Tourist">
+		<constructor-arg name="name" value="Shubham"></constructor-arg>
+		<constructor-arg name="age" value="25"></constructor-arg>
+		<constructor-arg name="aadhar_id" value="645285856694"></constructor-arg>
+	</bean>
+    <bean id="td4" class="Tour_Package.Tourist">
+		<constructor-arg name="name" value="Sparsh"></constructor-arg>
+		<constructor-arg name="age" value="26"></constructor-arg>
+		<constructor-arg name="aadhar_id" value="123456789012"></constructor-arg>
+	</bean>
+	
+	
+	<bean id="date" class="java.sql.Date" factory-method="valueOf">
+        <constructor-arg value="2010-06-31" />
+    </bean>
+	
+	<bean id="hp1" class="Tour_Package.HolidayPackage">
+		<property name="package_name" value="Package1"></property>
+		<property name="tourist" ref="td1"></property>
+		<property name="package_expiry" ref="date"></property>
+		<property name="package_price" value="10000.0"></property>
+	</bean>
+    
+</beans>

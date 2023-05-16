@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        #clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(250, 200, 200);
+        }
+
+        #clock>div {
+            background-color: rgb(225, 150, 150);
+            padding: 30px;
+            margin: 20px;
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: xx-large;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #clock>span {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock">
+        <div id="hrs">12</div>
+        <span>:</span>
+        <div id="mins">08</div>
+        <span>:</span>
+        <div id="secs">45</div>
+        <div id="ap">AM</div>
+    </div>
+</body>
+
+</html>
+<script>
+
+    function clock() {
+        let date = new Date();
+
+        let hours = date.getHours();
+        let mins = date.getMinutes();
+        let secs = date.getSeconds();
+        let ap = "";
+        if (hours >= 12) {
+            ap = "PM";
+        }
+        else {
+            ap = "AM";
+        }
+
+        document.querySelector("#hrs").innerText = hours;
+        document.querySelector("#mins").innerText = mins;
+        document.querySelector("#secs").innerText = secs;
+        document.querySelector("#ap").innerText = ap;
+
+    }
+
+    setInterval(clock, 1000);
+
+</script>

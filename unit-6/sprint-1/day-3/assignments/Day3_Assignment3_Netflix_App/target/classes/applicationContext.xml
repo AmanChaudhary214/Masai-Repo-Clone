@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        				   https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="usr" class="Netflix.UserService">
+		<property name="recommendationService" ref="rs"></property>
+	</bean>
+    
+    <bean id="rs" class="Netflix.RecommendationService">
+		<constructor-arg ref="cs"></constructor-arg>
+	</bean>
+    
+    <bean id="cs" class="Netflix.ContentService">
+		<constructor-arg ref="usr"></constructor-arg>
+	</bean>
+    
+</beans>
